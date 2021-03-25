@@ -32,8 +32,7 @@ export default createStore({
           if (payload.req == "clients") {
             context.commit("CLIENTS_LIST", response);
             context.commit("CLIENTS_STATUS", true);
-          }
-          else if (payload.req == "tanks") {
+          } else if (payload.req == "tanks") {
             context.commit("TANKS_LIST", response);
             context.commit("TANKS_STATUS", true);
           }

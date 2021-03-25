@@ -1,14 +1,17 @@
 <template>
   <div id="TanksList">
     <h2>Tanks List:</h2>
+    <div className="Item Head Row-3">
+      <div>Capacity</div>
+      <div>Order</div>
+      <div>ID</div>
+    </div>
     <TanksListItem
       id="TanksListItem"
       v-for="tank in tanks.data"
       :key="tank.name"
       v-bind:tank="{ tank }"
     />
-
-    {{ tanks.data }}
   </div>
   <button v-on:click="greet">Catch'em!</button>
 </template>

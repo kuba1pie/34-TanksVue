@@ -1,14 +1,12 @@
 <template>
-  <div className="Tank Item Row-2 Hover">
-    <div className="Row-2">
-      <div>{{ tank.ClientName }}</div>
-      <div>{{ tank.TankCapacity }}</div>
-    </div>
+  <div className="Tank Item Row-3 Hover">
+    <div>{{ tank.tank.TankID }}</div>
+    <div>{{ tank.tank.TankCapacity }}</div>
+    <div>{{ tank.tank.OrderName }}</div>
   </div>
 </template>
 
 <script>
-
 export default {
   name: "TanksListItem",
   data: function () {
