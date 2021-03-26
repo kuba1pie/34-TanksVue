@@ -8,12 +8,12 @@
         <div>Order Name</div>
         <div>Order City</div>
       </div>
-      <div v-if="OrdersStatus === false">Loading</div>
+      <div v-if="ordersStatus === false">Loading</div>
       <OrdersListItem
         id="OrdersListItem"
-        v-for="Order in Orders.data"
-        :key="Order.name"
-        v-bind:Order="{ Order }"
+        v-for="order in orders.data"
+        :key="order.name"
+        v-bind:order="{ order }"
       />
     </div>
   </div>
@@ -29,19 +29,16 @@ export default {
     OrdersListItem,
   },
   data: function () {
-    return {
-      Orders2: [],
-    };
+    return {};
   },
   computed: {
-    ...mapState(["Orders", "OrdersStatus"]),
+    ...mapState(["orders", "ordersStatus"]),
   },
   methods: {
     ...mapActions(["fetchPokemons"]),
     greet: function () {
-      this.fetchPokemons({ req: "Orders" });
+      this.fetchPokemons({ req: "orders" });
     },
   },
-  setup() {},
 };
 </script>

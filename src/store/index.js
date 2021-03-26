@@ -2,9 +2,10 @@ import { createStore } from "vuex";
 import axios from "axios";
 export default createStore({
   state: {
-    pokes: [],
+    orders: [],
     clients: [],
     tanks: [],
+    ordersStatus: false,
     clientsStatus: false,
     tanksStatus: false,
     nickname: "",
@@ -23,6 +24,12 @@ export default createStore({
     TANKS_STATUS(state, payload) {
       state.tanksStatus = payload;
     },
+    ORDERS_STATUS(state, payload) {
+      state.ordersStatus = payload;
+    },
+    ORDERS_LIST(state, payload) {
+      state.orders = payload;
+    },
   },
   actions: {
     async fetchPokemons(context, payload) {
@@ -35,6 +42,9 @@ export default createStore({
           } else if (payload.req == "tanks") {
             context.commit("TANKS_LIST", response);
             context.commit("TANKS_STATUS", true);
+          } else if (payload.req == "orders") {
+            context.commit("ORDERS_LIST", response);
+            context.commit("ORDERS_STATUS", true);
           }
         });
     },

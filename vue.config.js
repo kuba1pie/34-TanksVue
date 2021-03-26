@@ -1,3 +1,3 @@
 module.exports = {
-  publicPath: "/dist",
+  publicPath: "/34-TanksVue/",
 };

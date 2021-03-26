@@ -26,9 +26,7 @@ export default {
     TanksListItem,
   },
   data: function () {
-    return {
-      clients2: [],
-    };
+    return {};
   },
   computed: {
     ...mapState(["tanks", "tanksStatus"]),

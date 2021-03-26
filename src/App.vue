@@ -12,11 +12,12 @@
         <li className="Menu-Item">
           <router-link to="/clients">Clients</router-link>
         </li>
-        <!--
-
-                <li className="Menu-Item">
+        <li className="Menu-Item">
           <router-link to="/orders">Orders</router-link>
         </li>
+        <!--
+
+
         <li className="Menu-Item">
           <router-link to="/supplies">Supplies</router-link>
         </li>
