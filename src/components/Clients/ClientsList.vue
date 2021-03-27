@@ -11,9 +11,9 @@
       <div v-if="clientsStatus === false">Loading</div>
       <ClientsListItem
         id="ClientsListItem"
-        v-for="client in clients.data"
+        v-for="client in clients"
         :key="client.name"
-        v-bind:client="{ client }"
+        v-bind:item="{ client }"
       />
     </div>
   </div>
@@ -29,17 +29,16 @@ export default {
     ClientsListItem,
   },
   data: function () {
-    return {
-      clients2: [],
-    };
+    return {};
   },
   computed: {
-    ...mapState(["clients", "clientsStatus"]),
+    ...mapState(["clients", "orders", "clientsStatus"]),
   },
   methods: {
     ...mapActions(["fetchPokemons"]),
-    greet: function () {
-      this.fetchPokemons({ req: "clients" });
+    greet: async function () {
+      await this.fetchPokemons({ req: "clients" });
+      await this.fetchPokemons({ req: "orders" });
     },
   },
 };

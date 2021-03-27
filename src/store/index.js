@@ -37,13 +37,13 @@ export default createStore({
         .get("https://tanksvueapi.azurewebsites.net/" + payload.req)
         .then((response) => {
           if (payload.req == "clients") {
-            context.commit("CLIENTS_LIST", response);
+            context.commit("CLIENTS_LIST", response.data);
             context.commit("CLIENTS_STATUS", true);
           } else if (payload.req == "tanks") {
             context.commit("TANKS_LIST", response);
             context.commit("TANKS_STATUS", true);
           } else if (payload.req == "orders") {
-            context.commit("ORDERS_LIST", response);
+            context.commit("ORDERS_LIST", response.data);
             context.commit("ORDERS_STATUS", true);
           }
         });

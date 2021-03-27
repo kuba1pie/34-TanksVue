@@ -1,17 +1,33 @@
 <template>
   <div className="ClientOrders">
     <div className="Item Head Row-2">
-      <div>Order Name</div>
-      <div>Order City</div>
+      {{ orders.filter((order) => order.ClientID == id) }}
     </div>
   </div>
 </template>
 <script>
+import { mapState } from "vuex";
+import { onBeforeMount, onMounted } from "vue";
+
 export default {
-  name: "ClientOrder",
-  data: function () {
+  name: "ClientOrders",
+  computed: {
+    ...mapState(["orders"]),
+  },
+  props: ["id"],
+  data: function (orders, id) {
     return {};
   },
-  props: ["orders"],
+  methods: {
+    ret(orders, id) {
+      let ddd = orders.filter((order) => order.ClientID == id);
+    },
+  },
+  setup(id) {
+    onBeforeMount(() => {
+      console.log("Before Mount!");
+    });
+    onMounted(() => {});
+  },
 };
 </script>
